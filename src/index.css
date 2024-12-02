@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #fff;
+}
+
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento */
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* Para IE 10+ */
+  scrollbar-width: none;     /* Para Firefox */
+}
