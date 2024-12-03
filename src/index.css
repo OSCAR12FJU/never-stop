@@ -7,8 +7,11 @@
   line-height: 1.5;
   font-weight: 400;
   background-color: #fff;
+  overflow-x: hidden;
 }
-
+html, body {
+  overflow-x: hidden;
+}
 
 .scrollbar-hidden::-webkit-scrollbar {
   display: none; /* Oculta la barra de desplazamiento */

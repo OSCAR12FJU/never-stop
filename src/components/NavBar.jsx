@@ -42,7 +42,7 @@ export const NavBar = ({className}) =>{
 
 
     <nav className="bg-[#F2F2F2]">
-    <div className={`max-w-screen-xl flex justify-center items-center px-4 py-3 mx-auto ${className}`}>
+    <div className={`max-w-screen-xl hidden md:flex justify-center items-center px-4 py-3 mx-auto ${className}`}>
         <div className="flex items-center">
             <ul className="flex flex-row font-semibold mt-0 space-x-8 rtl:space-x-reverse text-sm md:text-base">
                 {

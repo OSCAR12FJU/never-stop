@@ -37,20 +37,19 @@ export const ItemProductCart =({product}) =>{
         <div className="flex items-center gap-3 ">
             <img src={image}  alt='product-image' className="h-20 w-20 rounded-lg"/>
             <div>
-            <div className="rounded-full dark:bg-gray-600 w-full mb-2">
+            <div className="rounded-full w-full mb-2">
             <a className="text-base font-semibold text-[#212229]">{title}</a>
-             
             </div>
 
 
         <div className="relative flex items-center max-w-[8rem]">
         <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input" className="bg-gray-100 rounded-s-md p-2 h-6 focus:ring-gray-100 focus:ring-2 focus:outline-none" onClick={() => handleDecrement(product.id)}>
-            <svg className="w-3 h-3 text-[#212529] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+            <svg className="w-3 h-3 text-[#212229]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M1 1h16"/>
             </svg>
         </button>
 
-        <input type="text" id="quantity-input" data-input-counter data-input-counter-min="1" data-input-counter-max="50" aria-describedby="helper-text-explanation" className="bg-gray-50  border-gray-300 h-6 text-center text-[#212529] text-md font-semibold  block w-8 " value={currentQuantity} required />
+        <input type="text" id="quantity-input" data-input-counter data-input-counter-min="1" data-input-counter-max="50" aria-describedby="helper-text-explanation" className="bg-gray-50 border-gray-300 h-6 text-center text-[#212529] text-md font-semibold  block w-8 " value={currentQuantity} required />
 
         <button type="button" onClick={()=> handleIncrement(product.id)} id="increment-button" data-input-counter-increment="quantity-input" className="bg-gray-100 hover:bg-gray-200  rounded-e-lg p-2 h-6 focus:ring-gray-100 focus:ring-2 focus:outline-none">
             <svg className="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
