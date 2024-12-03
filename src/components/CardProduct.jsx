@@ -55,8 +55,8 @@ export const CardProduct = ({product}) =>{
         <div className="flex flex-col items-center pb-4">
             <h4 className="text-md font-semibold  text-gray-900 leading-tight dark:text-white mb-3">{title.slice(0,20)}</h4>
             <div className="flex justify-center items-center">   
-                <span className="text-3xl font-bold text-gray-900 mb-2">${price}</span>
-                <span className="md:text-1xl text-sm font-medium text-[#41BD7D] mb-2 px-2">%{Math.floor(Math.random()*(50-10 +1))+10} OFF</span>
+                <span className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">${price}</span>
+                <span className="md:text-base text-sm font-medium text-[#41BD7D] mb-2 px-2">%{Math.floor(Math.random()*(50-10 +1))+10} OFF</span>
             </div> 
         </div>
         <div className="flex justify-center md:opacity-0 group-hover:opacity-100  opacity-100 transition-opacity duration-300 rounded md:px-5 px-3 pb-2">
@@ -69,7 +69,7 @@ export const CardProduct = ({product}) =>{
                 <Link  to={`/products/${product.id}`}>
                 <a className="text-gray-900 bg-white font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center me-2 ">
                 <EyeCardIcon className="w-4 h-4 me-2"/>
-                Ver
+                <span className="hidden md:flex">Ver</span>
                 </a>
                 </Link>
             </div>

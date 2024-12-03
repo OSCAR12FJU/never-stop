@@ -62,12 +62,7 @@ const handleDecrement = () => {
     }));
 };
 
-// const currentProduct = allProduct.find((product) => product.id === id);
-// const currentQuantity = product.quantity;
-
-
 //Esta funcionalidad aparte de agregar un product al array de productos seleccionados, este chequea de que no exista por que si este existe, lo que hace es que cambia su propiedad de CANTIDAD para que se vaya agregando las veces que se quiere sumar uno más.
-
 const handleProduct = (e , product) =>{
   e.preventDefault();
   const existingProduct = allProduct.find((item) => item.id === product.id)
