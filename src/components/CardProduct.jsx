@@ -49,11 +49,11 @@ export const CardProduct = ({product}) =>{
     //  }
 
     return(
-        <div className="w-full max-w-sm bg-white rounded-lg flex flex-col items-center group cursor-pointer hover:border-b-0 md:px-5 px-3 hover:shadow-lg rounded">
+        <div className="w-full max-w-sm bg-white rounded-lg flex flex-col items-center group cursor-pointer hover:border-b-0 md:px-5 px-3 md:hover:shadow-lg rounded">
          <img className="md:px-4 px-0 rounded-t-lg max-h-card pt-4 h-48 object-cover" src={image} alt="product image" />
         
         <div className="flex flex-col items-center pb-4">
-            <h4 className="text-md font-semibold  text-gray-900 leading-tight dark:text-white mb-3">{title.slice(0,20)}</h4>
+            <h4 className="text-md font-semibold  text-gray-900 leading-tight mb-3">{title.slice(0,18)}</h4>
             <div className="flex justify-center items-center">   
                 <span className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">${price}</span>
                 <span className="md:text-base text-sm font-medium text-[#41BD7D] mb-2 px-2">%{Math.floor(Math.random()*(50-10 +1))+10} OFF</span>
