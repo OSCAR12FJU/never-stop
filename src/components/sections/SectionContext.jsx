@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import { createContext, useContext, useEffect, useState } from "react"
-import { getProducts, getProductsCategory } from "../../api/api";
+// import { getProducts } from "../../api/API.js";
+import { getProducts, getProductsCategory } from "../../api/productsFetch";
+
 
 export const AuthContext = createContext(undefined);
 

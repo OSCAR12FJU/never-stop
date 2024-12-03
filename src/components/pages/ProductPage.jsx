@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { getProductInd, imgMiniature } from "../../api/api";
+import { getProductInd, imgMiniature } from "../../api/productsFetch";
 // import { Products } from "../sections/Products";
 import { SectionContainer } from "../sections/SectionContainer";
 import {useParams } from "react-router-dom";

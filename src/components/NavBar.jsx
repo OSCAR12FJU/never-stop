@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { useAuth } from "./sections/SectionContext";
-import { getProductCateIndiv } from "../api/api";
+// import { getProductCateIndiv } from "../api/api";
+import { getProductCateIndiv } from "../api/productsFetch";
 
 export const NavBar = ({className}) =>{
     const {category} = useAuth();
