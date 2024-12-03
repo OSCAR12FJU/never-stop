@@ -14,7 +14,7 @@ export const SideBarCart = ({openSideBar1, setOpenSideBar1}
   const calcularTotal = (items)=>{
     const total = items.reduce((total, product) => {
         const productTotal = product.quantity > 1 ? product.price * product.quantity : product.price
-       return total + productTotal;
+       return total + productTotal; 
     }, 0);
     const resultTotal = Math.round(total)
     return resultTotal
@@ -35,7 +35,7 @@ export const SideBarCart = ({openSideBar1, setOpenSideBar1}
 
 const message = `Hola, Equipo de NeverStop!\nQuiero comprar los siguientes productos:\n${productDetails}\n\nTotal: $${total}`;
 
-const whatsappURL = `https://api.whatsapp.com/send?phone=1165123948&text=${message.replace(/\n/g, "%0A")}`;
+const whatsappURL = `https://api.whatsapp.com/send?phone=541165123948&text=${message.replace(/\n/g, "%0A")}`;
 
   return (
     <>

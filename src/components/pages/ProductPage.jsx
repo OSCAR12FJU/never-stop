@@ -11,8 +11,6 @@ const ProductPage = () =>{
   const {id} = useParams()
   const {allProduct, setAllProduct} = useAuth()
 
-  
-  
   const [product, setProduct] = useState({
   id: null,
   title: '',
@@ -21,8 +19,6 @@ const ProductPage = () =>{
   quantity: 1,
   image: '',
    })
-  console.log("product del page",product);
-
   
   useEffect(() =>{
     const fetchProducts = async()  =>{
@@ -45,7 +41,6 @@ const ProductPage = () =>{
           });
         }
 
-
       }catch(error){
         console.error("Error al obtener el producto",error);
       }
@@ -53,30 +48,25 @@ const ProductPage = () =>{
     fetchProducts();
   }, [id]);
 
-  const handleIncrement = (id) =>{
-    const newProduct = allProduct.map((item) =>
-    item.id === id 
-    ? {...item, quantity: item.quantity + 1}
-    : item
-);
-setAllProduct(newProduct);
+  const handleIncrement = () => {
+    setProduct((prevProduct) => ({
+        ...prevProduct,
+        quantity: prevProduct.quantity + 1,
+    }));
+};
 
-const updatedProduct = newProduct.find((item) => item.id === id);
-  setProduct(updatedProduct);
-}
-const handleDecrement = (id) =>{
-    const newProduct = allProduct.map((product) =>
-    product.id === id && product.quantity > 1
-    ? {...product, quantity: product.quantity - 1}
-    : product
-);
-setAllProduct(newProduct);
-const updatedProduct = newProduct.find((product) => product.id === id);
-setProduct(updatedProduct);
-}
+const handleDecrement = () => {
+    setProduct((prevProduct) => ({
+        ...prevProduct,
+        quantity: prevProduct.quantity > 1 ? prevProduct.quantity - 1 : 1,
+    }));
+};
 
 // const currentProduct = allProduct.find((product) => product.id === id);
 // const currentQuantity = product.quantity;
+
+
+//Esta funcionalidad aparte de agregar un product al array de productos seleccionados, este chequea de que no exista por que si este existe, lo que hace es que cambia su propiedad de CANTIDAD para que se vaya agregando las veces que se quiere sumar uno más.
 
 const handleProduct = (e , product) =>{
   e.preventDefault();
@@ -86,8 +76,8 @@ const handleProduct = (e , product) =>{
       const validateProduct = allProduct.map((item) =>
       item.id === product.id 
       ? {...item, quantity: item.quantity + 1}
-      : item
-  );
+      : item);
+
   setAllProduct(validateProduct);
   setProduct({ ...product, quantity: existingProduct.quantity + 1});
   }else{
@@ -99,8 +89,28 @@ const handleProduct = (e , product) =>{
       setProduct(productWithQuantity);
     
   }
-
 }
+
+const handleBuyNow = (e, product) => {
+  e.preventDefault();
+
+  const total = product.quantity * product.price;
+
+  const productDetails = `
+Nombre: ${product.title}, 
+Cantidad: ${product.quantity}, 
+Precio: $${product.price}`;
+  
+  const message = `Hola, Equipo de NeverStop!
+Quiero comprar los siguientes productos:
+${productDetails}
+
+Total: $${Math.round(total)}`;
+
+  const whatsappURL = `https://api.whatsapp.com/send?phone=541165123948&text=${encodeURIComponent(message)}`;
+  
+  window.open(whatsappURL, "_blank");
+};
 
 
     return(
@@ -143,7 +153,8 @@ const handleProduct = (e , product) =>{
             </svg>
         </button>
 
-        <input type="text" id="quantity-input" data-input-counter data-input-counter-min="1" data-input-counter-max="50" aria-describedby="helper-text-explanation" className="bg-gray-50  border-gray-300 h-6 text-center text-[#212529] text-md font-semibold  block w-8 " value={product?.quantity} readOnly required />
+        <input type="text" id="quantity-input" data-input-counter data-input-counter-min="1" data-input-counter-max="50" aria-describedby="helper-text-explanation" className="bg-gray-50  border-gray-300 h-6 text-center text-[#212529] text-md font-semibold  block w-8 " value={product.quantity} readOnly required />
+        
 
         <button type="button" onClick={()=> handleIncrement(product.id)} id="increment-button" data-input-counter-increment="quantity-input" className="bg-gray-100 hover:bg-gray-200  rounded-e-lg p-2 h-6 focus:ring-gray-100 focus:ring-2 focus:outline-none">
             <svg className="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
@@ -174,7 +185,8 @@ const handleProduct = (e , product) =>{
               </button>
   
             <button
-             className="bg-[#01BC39] flex gap-2 items-center font-semibold text-white px-4 py-4 text-[0.9rem] md:text-medium md:px-6 md:py-2 rounded-md">
+             className="bg-[#01BC39] flex gap-2 items-center font-semibold text-white px-4 py-4 text-[0.9rem] md:text-medium md:px-6 md:py-2 rounded-md " 
+             onClick={(e) => handleBuyNow(e,product)}>
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-6 h-6 md:w-8 md:h-8" stroke="white" strokeLinecap="round" strokeLinejoin="round" width="24" height="24" strokeWidth="2">
               <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"></path>
               <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"></path>
