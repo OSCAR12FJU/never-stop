@@ -12,6 +12,7 @@ export const SideBar = ({setOpenSideBar, openSideBar}) =>{
     const {category} = useAuth();
     const [seleCategory, setSeleCategory] = useState("")
     const [selecObj, setSelecObj] = useState([])
+    console.log("contenido de la seleccion",selecObj)
 
     // const isSidebarOpen1 = true;
     // console.log("estado de:",category)
@@ -39,13 +40,14 @@ export const SideBar = ({setOpenSideBar, openSideBar}) =>{
     
     useEffect(() => {
         const fetchProducts = async () =>{
+          // isLoading(true);
             if (seleCategory.length > 0 ){
               try{
                 const productCategory = await
-                getProductCateIndiv(seleCategory)
-                if (Array.isArray(productCategory)){
-                    setSelecObj(productCategory);
-                    console.log("infromaciòn desde el sidebar",productCategory);
+                getProductCateIndiv(seleCategory);
+                if (productCategory && Array.isArray(productCategory.products)){
+                    setSelecObj(productCategory.products);
+                    console.log("infromaciòn desde el sidebar",productCategory.products);
                 }else{
                  console.error("Respuesta inesperada", productCategory);
                  setSelecObj([]);
@@ -53,6 +55,11 @@ export const SideBar = ({setOpenSideBar, openSideBar}) =>{
                }catch(error){
                 console.error("error al obtener los products:", error);
                }
+              //  finally{
+              //   isLoading(false);
+
+              //  }
+
             }
 
         };
@@ -101,7 +108,7 @@ export const SideBar = ({setOpenSideBar, openSideBar}) =>{
 
   {/* Contenido desplazable */}
   <div className="py-4 overflow-y-auto flex-1">
-    <ul className="flex flex-col w-full font-semibold gap-4 mt-4 text-xl">
+    <ul className="flex flex-col w-full font-medium gap-4 mt-4 text-lg">
       {category.map((item, index) => (
         <li key={index}>
           <a
@@ -140,7 +147,7 @@ export const SideBar = ({setOpenSideBar, openSideBar}) =>{
     >
       <div className="flex items-center justify-between mb-4">
         <a
-          className="flex items-center gap-2 text-xl font-bold cursor-pointer"
+          className="flex items-center gap-2 text-xl font-semibold cursor-pointer"
           onClick={(e) => handleRemove(e)}
         >
           <svg
@@ -161,7 +168,7 @@ export const SideBar = ({setOpenSideBar, openSideBar}) =>{
         </a>
       </div>
       <div className="py-4 overflow-y-auto flex-1">
-        <ul className="flex flex-col w-full font-semibold gap-4 mt-4 text-xl">
+        <ul className="flex flex-col w-full font-medium gap-4 mt-4 text-lg">
           {selecObj.map((item, index) => (
             <li key={index}>
               <a

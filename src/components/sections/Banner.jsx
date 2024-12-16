@@ -1,5 +1,4 @@
 import PropTypes from "prop-types"
-import { NavBar } from "../NavBar"
 
 export const Banner = ({notHome}) =>{ 
     return(
@@ -22,7 +21,7 @@ export const Banner = ({notHome}) =>{
 
         {/* ))} */}
       </div>
-          <div className="flex justify-center items-center mx-auto bg-[#334FB4] py-8 ">
+          {/* <div className="flex justify-center items-center mx-auto bg-[#334FB4] py-8 ">
             <div className="flex gap-2 rounded-lg shadow py-4 justify-center items-center bg-white px-10 cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-8 h-8 md:w-12 md:h-12 stroke-red-500 fill-red-500" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"> 
             <path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"></path> 
@@ -30,10 +29,9 @@ export const Banner = ({notHome}) =>{
 
             <h3 className=" text-xl md:text-3xl text-[#334FB4] font-bold ">¡Descubrí nuestras ofertas!</h3>
             </div>
-          </div>
+          </div> */}
         </>
       )}
-          <NavBar />
     </div>
     )
 }

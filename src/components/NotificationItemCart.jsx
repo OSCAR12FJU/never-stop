@@ -9,7 +9,7 @@ export const NotificationItemCart = ({title, price, image, onButtonClick}) =>{
           data-drawer-hide="drawer-form"
           onClick={onButtonClick}
           aria-controls="drawer-form"
-          className="rounded-lg text-md w-8 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center px-3 py-3 bg-[#212229]"
+          className="rounded-lg text-md w-12 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center px-3 py-3"
         >
           <svg
             className="w-3 h-3"
@@ -19,7 +19,7 @@ export const NotificationItemCart = ({title, price, image, onButtonClick}) =>{
             viewBox="0 0 14 14"
           >
             <path
-              stroke="white"
+              stroke="#212229"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="3"

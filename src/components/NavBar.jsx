@@ -20,8 +20,8 @@ export const NavBar = ({className}) =>{
               try{
                 const navCategory = await
                 getProductCateIndiv(seleCatNav);
-                if (Array.isArray(navCategory)){
-                    setSelecObj(navCategory);
+                if (navCategory && Array.isArray(navCategory.products)){
+                    setSelecObj(navCategory.products);
                     console.log("infromaciòn desde el sidebar",navCategory);
                 }else{
                  console.error("Respuesta inesperada", navCategory);    
@@ -41,15 +41,15 @@ export const NavBar = ({className}) =>{
     // <SectionContainer>
 
 
-    <nav className="bg-[#F2F2F2]">
+    <nav className="bg-[#212229]">
     <div className={`max-w-screen-xl hidden md:flex justify-center items-center px-4 py-3 mx-auto ${className}`}>
         <div className="flex items-center">
-            <ul className="flex flex-row font-semibold mt-0 space-x-8 rtl:space-x-reverse text-sm md:text-base">
+            <ul className="flex flex-row font-normal text-white mt-0 space-x-8 rtl:space-x-reverse text-sm md:text-md">
                 {
                     category.map((item, index) =>(
                 <li key={index} className="relative group">
-                    <a href="#" onMouseEnter={(e) => handleClick(e, item)}className="flex justify-center items-center text-gray-900 text-base" aria-current="page">{item}<svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
+                    <a href="#" onMouseEnter={(e) => handleClick(e, item)}className="flex justify-center items-center" aria-current="page">{item}<svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="m1 1 4 4 4-4"/>
                     </svg>
                     </a>
                 <div className="absolute left-0 hidden group-hover:block z-10 font-normal bg-white divide-y divide-gray-100 rounded-md shadow w-44 ">
@@ -62,9 +62,7 @@ export const NavBar = ({className}) =>{
 
                         ))
                     }
-                {/* <li>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Dashboard</a>
-            </li> */}
+
         </ul>
         </div>
         </li>

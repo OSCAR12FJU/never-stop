@@ -34,16 +34,15 @@ export const SearchBar = () =>{
         type="text"
         value={searchValue}
         onChange={handleInputChange}
-        className="block w-full p-2 ps-10 text-sm text-gray-900 bg-input border-input border rounded-md placeholder-black 
-        border-1 border-[#212229] 
-        placeholder:font-sm focus:bg-input focus:border-input2"
+        className="block w-full py-3 pl-10 text-sm text-gray-900 border rounded-xl placeholder-black border-[#212229] 
+        placeholder:font-sm placeholder:text-base"
         placeholder="¿Que estas buscando...?"
         />        
 
-         <div className={`absolute left-0 ${searchValue.length > 0 ? "grid" : "hidden" } z-40 font-normal bg-white  rounded-md shadow grid-cols-3 px-4 py-4 w-full gap-4 max-h-80 overflow-y-auto`}>
+         <div className={`absolute left-0 ${searchValue.length > 0 ? "grid" : "hidden" } bg-white z-40 font-normal bg-[#212229]  rounded-md shadow grid-cols-3 px-4 py-4 w-full gap-4 max-h-80 overflow-y-auto`}>
         <div className="flex flex-col justify-start items-start col-span-1 ">
-            <h4 className="font-semibold pb-1 border-b-[0.1rem] ">Sugerencias</h4>
-          <ul className="py-1 text-sm md:text-base text-[#212229] font-medium">
+            <h4 className="font-medium text-md pb-1 border-b-[0.1rem] ">Sugerencias</h4>
+          <ul className="py-1 text-sm md:text-md text-[#212229] font-normal">
             {
                 searchCategory.map((item, index) => (
                     <li key={index}>
@@ -56,13 +55,7 @@ export const SearchBar = () =>{
         </ul>
         </div>
         <div className="flex flex-col justify-start items-start col-span-2">
-        <h4 className="font-semibold pb-1 border-b-[0.1rem]">Productos</h4>
-        {/* <ul className="py-2 text-base text-[#212229] font-normal" aria-labelledby="dropdownLargeButton">
-             <li>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">Hola</a>
-             </li>
-
-        </ul> */}
+        <h4 className="font-medium pb-1 text-md border-b-[0.1rem]">Productos</h4>
         {
         searchProducts.map((product, index) =>(
             <div key={index} className="scroll-y-auto">
@@ -70,9 +63,6 @@ export const SearchBar = () =>{
              </div>   
             ))
         }
-        {/* <ItemsNavBar></ItemsNavBar>
-        <ItemsNavBar></ItemsNavBar>
-        <ItemsNavBar></ItemsNavBar> */}
         
 
         </div>

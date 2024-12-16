@@ -10,8 +10,8 @@ export const ItemsNavBar = ({product} ) => {
 
         <div className="flex flex-col w-full  justify-center pl-4">
         {/* <div className="flex flex-col "> */}
-         <a className="text-sm md:text-base font-semibold text-[#212229]">{title.slice(0,15)}</a>
-        <span className="text-base text-[#212229] font-bold">
+         <a className="text-sm md:text-md font-normal text-[#212229]">{title.slice(0,15)}</a>
+        <span className="text-base text-[#212229] font-semibold">
             ${price}
         </span>
         {/* </div> */}

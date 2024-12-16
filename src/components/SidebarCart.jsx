@@ -50,15 +50,15 @@ const whatsappURL = `https://api.whatsapp.com/send?phone=541165123948&text=${mes
     )}
       <div className={`${allProduct.length >= 1 ? "sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/3": "w-[20rem]"} fixed bg-white top-0 right-0 px-5 z-40 transition-transform rounded-bl-lg py-6 max-h-screen overflow-y-auto ${openSideBar1 ? 'translate-x-0' : 'translate-x-full'} shadow-2xl`}>
         <h5 
-          className="inline-flex items-center mb-3 text-xl font-bold text-[#21229]">
-          Carrito de Compras
+          className="inline-flex items-center mb-3 text-lg font-semibold text-[#21229]">
+          CARRITO DE COMPRAS
         </h5>
         <button
           type="button"
           data-drawer-hide="drawer-form"
           onClick={() => handleOpen()}
           aria-controls="drawer-form"
-          className="bg-[#212229] rounded-md text-md w-8 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center"
+          className="text-md w-8 h-8 absolute top-2.5 right-2.5 inline-flex items-center justify-center"
         >
           <svg
             className="w-3 h-3"
@@ -68,7 +68,7 @@ const whatsappURL = `https://api.whatsapp.com/send?phone=541165123948&text=${mes
             viewBox="0 0 14 14"
           >
             <path
-              stroke="white"
+              stroke="#212229"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="3"
@@ -85,12 +85,12 @@ const whatsappURL = `https://api.whatsapp.com/send?phone=541165123948&text=${mes
     </div>
     <div className="flex items-center justify-between p-4 mb-2">
       <div className="flex items-center ">
-        <h3 className="text-2xl text-[#212229] font-bold">Total:</h3>
+        <h3 className="text-xl text-[#212229] font-bold">Total:</h3>
        </div>
     
       <div className="mx-4 rounded-full flex w-12 gap-2 justify-center items-end">
         <div>
-          <span className="text-2xl text-[#212229] font-bold"> ${calcularTotal(allProduct)}.00
+          <span className="text-xl text-[#212229] font-bold"> ${calcularTotal(allProduct)}.00
           </span>
         </div>
     </div> 
@@ -100,12 +100,12 @@ const whatsappURL = `https://api.whatsapp.com/send?phone=541165123948&text=${mes
     <a 
       onClick={() => window.open(whatsappURL, "_blank")}
       rel="noopener noreferrer"
-       className="bg-[#01BC39] flex gap-2 items-center font-semibold text-white justify-center text-center px-4 py-4  md:px-6 md:py-2 rounded-md text-base cursor-pointer">
+       className="bg-[#01BC39] flex gap-2 items-center font-semibold text-white justify-center text-center px-2 py-3 md:px-6 md:py-2 rounded-full text-base cursor-pointer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-6 h-6 md:w-8 md:h-8" stroke="white" strokeLinecap="round" strokeLinejoin="round" width="24" height="24" strokeWidth="2">
       <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"></path>
       <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"></path>
       </svg>
-      Comprar Ahora
+      COMPRAR AHORA
       </a>
     </div>
 

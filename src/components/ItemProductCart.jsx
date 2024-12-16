@@ -38,7 +38,7 @@ export const ItemProductCart =({product}) =>{
             <img src={image}  alt='product-image' className="h-20 w-20 rounded-lg"/>
             <div>
             <div className="rounded-full w-full mb-2">
-            <a className="text-base font-semibold text-[#212229]">{title}</a>
+            <a className="text-lg font-semibold text-[#212229]">{title}</a>
             </div>
 
 

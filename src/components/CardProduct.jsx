@@ -50,26 +50,30 @@ export const CardProduct = ({product}) =>{
 
     return(
         <div className="w-full max-w-sm bg-white rounded-lg flex flex-col items-center group cursor-pointer hover:border-b-0 md:px-5 px-3 md:hover:shadow-lg rounded">
-         <img className="md:px-4 px-0 rounded-t-lg max-h-card pt-4 h-48 object-cover" src={image} alt="product image" />
+        {/* <div className="w-full max-w-xs h-48 overflow-hidden rounded-t-lg 8 pt-4 h-48 mb-4 md:px-4 px-0 ">  */}
+         <img className=" md:px-4 px-0 max-w-[12rem] rounded-t-lg max-h-48 pt-4 h-48 object-cover mb-4" src={image} alt="product image" />
+        {/* </div> */}
         
-        <div className="flex flex-col items-center pb-4">
-            <h4 className="text-md font-semibold  text-gray-900 leading-tight mb-3">{title.slice(0,18)}</h4>
-            <div className="flex justify-center items-center">   
-                <span className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">${price}</span>
-                <span className="md:text-base text-sm font-medium text-[#41BD7D] mb-2 px-2">%{Math.floor(Math.random()*(50-10 +1))+10} OFF</span>
+        <div className="flex flex-col items-center pb-2 ">
+            <h4 className="text-md font-normal text-[#424BCB] leading-tight mb-3">{title.slice(0,18)}</h4>
+            <div className="flex justify-center items-center gap-2"> 
+                <span className="text-lg font-normal text-[#424BCB] mb-2 line-through">${price}</span>
+                <span className="text-2xl font-bold text-gray-900 mb-2  ">${price}</span>
             </div> 
         </div>
+        <hr className="w-full border-[#B9BDEC] hidden border-[0.0.2px] md:block group-hover:hidden"></hr>
+
         <div className="flex justify-center md:opacity-0 group-hover:opacity-100  opacity-100 transition-opacity duration-300 rounded md:px-5 px-3 pb-2">
-            <a  className="text-white bg-[#212529] hover:bg-[#212529] focus:ring-4 focus:outline-none focus:ring-gray-600 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center me-2"
+            <a  className="text-white bg-[#212529] hover:bg-[#212529] focus:ring-4 focus:outline-none focus:ring-gray-600 font-semibold rounded-full text-sm px-4 py-2.5 text-center inline-flex items-center me-2"
              onClick={(e) => handleProduct(e, product)} href="#"
              >
-                <CartCardIcon className="w-3.5 h-3.5 me-2"/>
-                Comprar
+                <CartCardIcon className="hidden md:flex w-3.5 h-3.5 me-2"/>
+                COMPRAR
                 </a>
                 <Link  to={`/products/${product.id}`}>
-                <a className="text-gray-900 bg-white font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center me-2 ">
-                <EyeCardIcon className="w-4 h-4 me-2"/>
-                <span className="hidden md:flex">Ver</span>
+                <a className="text-gray-900 bg-white font-bold rounded-full text-sm px-2 md:px-4 py-2.5 text-center flex justify-center items-center border border-[#212229]">
+                <EyeCardIcon className="w-5 h-5"/>
+                <span className="hidden md:flex ">VER</span>
                 </a>
                 </Link>
             </div>

@@ -1,6 +1,6 @@
 export const getProductsCategory = async() =>{
     try{
-        const response = await fetch(`https://fakestoreapi.com/products/categories`)
+        const response = await fetch(`http://localhost:3001/api/product/getAllCategory`)
         if (!response.ok) {
             throw new Error('Error en la consulta');
         }
@@ -12,22 +12,54 @@ export const getProductsCategory = async() =>{
     }
 }
 
-export const getProductCateIndiv = async(category) =>{
+export const getCategoryProducts = async()=> {
     try{
-        const response = await fetch(`https://fakestoreapi.com/products/category/${category}`)
+        const response = await fetch('http://localhost:3001/api/product/getAllCategory');
+        if(!response.ok){
+            throw new Error('Error en la consulta');
+        }
+        const data = await response.json();
+        return data;
+    }catch(error){
+        console.error('Error en la petición', error);
+        throw error
+    }
+
+}
+
+// export const getProductCateIndiv = async(category) =>{
+//     try{
+//         const response = await fetch(`http://localhost:3001/api/product/allProductsCategory/${category}`)
+//         if (!response.ok) {
+//             throw new Error('Error en la consulta');
+//         }
+//         const data = await response.json();
+//         return data;
+//     } catch(error){
+//         console.error('error en la petición:', error);
+//         throw error;
+//     }
+// }
+export const getProductCateIndiv = async (category) => {
+    try {
+        const url =`http://localhost:3001/api/product/allProductsCategory/${category}`;
+        console.log("URL de la API:", url);  // Verifica la URL
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error('Error en la consulta');
         }
         const data = await response.json();
         return data;
-    } catch(error){
-        console.error('error en la petición:', error);
+    } catch (error) {
+        console.error('Error en la petición:', error);
         throw error;
     }
-}
+};
+
+
 export const getProductInd = async(id) =>{
     try{
-        const response = await fetch(`https://fakestoreapi.com/products/${id}`)
+        const response = await fetch(`http://localhost:3001/api/product/productSelect/${id}`)
         if (!response.ok) {
             throw new Error('Error en la consulta');
         }
@@ -62,7 +94,7 @@ export const imgMiniature =[
 
 export const getProducts = async() =>{
     try{
-        const response = await fetch('https://fakestoreapi.com/products')
+        const response = await fetch('http://localhost:3001/api/product/getAll')
         if (!response.ok) {
             throw new Error('Error al crear el libro');
         }
