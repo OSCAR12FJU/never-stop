@@ -1,6 +1,8 @@
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 export const getProductsCategory = async() =>{
     try{
-        const response = await fetch(`http://localhost:3001/api/product/getAllCategory`)
+        const response = await fetch(`${baseUrl}api/product/getAllCategory`)
         if (!response.ok) {
             throw new Error('Error en la consulta');
         }
@@ -14,7 +16,7 @@ export const getProductsCategory = async() =>{
 
 export const getCategoryProducts = async()=> {
     try{
-        const response = await fetch('http://localhost:3001/api/product/getAllCategory');
+        const response = await fetch(`${baseUrl}/api/product/getAllCategory`);
         if(!response.ok){
             throw new Error('Error en la consulta');
         }
@@ -42,7 +44,7 @@ export const getCategoryProducts = async()=> {
 // }
 export const getProductCateIndiv = async (category) => {
     try {
-        const url =`http://localhost:3001/api/product/allProductsCategory/${category}`;
+        const url =`${baseUrl}/api/product/allProductsCategory/${category}`;
         console.log("URL de la API:", url);  // Verifica la URL
         const response = await fetch(url);
         if (!response.ok) {
@@ -59,7 +61,7 @@ export const getProductCateIndiv = async (category) => {
 
 export const getProductInd = async(id) =>{
     try{
-        const response = await fetch(`http://localhost:3001/api/product/productSelect/${id}`)
+        const response = await fetch(`${baseUrl}/api/product/productSelect/${id}`)
         if (!response.ok) {
             throw new Error('Error en la consulta');
         }
@@ -94,7 +96,7 @@ export const imgMiniature =[
 
 export const getProducts = async() =>{
     try{
-        const response = await fetch('http://localhost:3001/api/product/getAll')
+        const response = await fetch(`${baseUrl}http://localhost:3001/api/product/getAll`)
         if (!response.ok) {
             throw new Error('Error al crear el libro');
         }
