@@ -77,7 +77,7 @@ export const EditPage = () =>{
         formContent.append("image", formData.image);
 
         try{
-            const response = await fetch("http://localhost:3001/api/product/insert", {
+            const response = await fetch("https://backend-neverstop.onrender.com/api/product/insert", {
                 method: "POST",
                 body: formContent,
               });

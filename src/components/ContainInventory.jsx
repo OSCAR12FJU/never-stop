@@ -10,7 +10,7 @@ export const ContainInventory = () => {
   
   const getProducts = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/product/getAll");
+      const response = await fetch("https://backend-neverstop.onrender.com/api/product/getAll");
       if (!response.ok) {
         throw new Error("Error en la petición");
       }
